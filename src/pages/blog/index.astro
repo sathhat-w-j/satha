@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = [
+  {
+    title: 'دليلك الشامل لخدمات السطحة في جدة',
+    slug: 'comprehensive-guide',
+    excerpt: 'تعرف على كل ما تحتاج معرفته عن خدمات السطحة في جدة، من الأسعار إلى أفضل الممارسات وكيفية اختيار الخدمة المناسبة.',
+    date: '2024-03-20'
+  },
+  {
+    title: 'نصائح مهمة عند تعطل سيارتك في الطريق',
+    slug: 'car-breakdown-tips',
+    excerpt: 'ماذا تفعل عندما تتعطل سيارتك في الطريق؟ إليك أهم النصائح للتعامل مع هذا الموقف بأمان وفعالية.',
+    date: '2024-03-18'
+  },
+  {
+    title: 'كيف تختار أفضل خدمة سطحة في جدة؟',
+    slug: 'choose-best-towing',
+    excerpt: 'معايير اختيار خدمة السطحة المناسبة في جدة، وما يجب أن تبحث عنه للحصول على أفضل خدمة بأفضل سعر.',
+    date: '2024-03-15'
+  }
+];
+---
+
+<Layout
+  title="المدونة | سطحة وسط جدة"
+  description="مقالات ونصائح حول خدمات السطحة في جدة، صيانة السيارات، والمزيد من المعلومات المفيدة."
+>
+  <main class="py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-12">المدونة</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map(post => (
+          <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+              <h2 class="text-xl font-bold mb-3">
+                <a href={`/blog/${post.slug}`} class="text-blue-600 hover:text-blue-800">
+                  {post.title}
+                </a>
+              </h2>
+              <p class="text-gray-600 mb-4">{post.excerpt}</p>
+              <div class="text-sm text-gray-500">
+                {new Date(post.date).toLocaleDateString('ar-SA')}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

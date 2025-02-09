@@ -1,0 +1,69 @@
+---
+const links = [
+  { href: '/', text: 'الرئيسية' },
+  { href: '/services', text: 'خدماتنا' },
+  { href: '/pricing', text: 'الأسعار' },
+  { href: '/testimonials', text: 'آراء العملاء' },
+  { href: '/faq', text: 'الأسئلة الشائعة' },
+  { href: '/blog', text: 'المدونة' },
+  { href: '/contact', text: 'اتصل بنا' }
+];
+---
+
+<nav class="bg-white shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex-shrink-0">
+        <a href="/" class="text-2xl font-bold text-blue-600">سطحة وسط جدة</a>
+      </div>
+      
+      <div class="hidden md:block">
+        <div class="flex items-center space-x-8 space-x-reverse">
+          {links.map(link => (
+            <a
+              href={link.href}
+              class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              {link.text}
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <div class="md:hidden">
+        <button
+          type="button"
+          class="text-gray-700 hover:text-blue-600"
+          aria-label="فتح القائمة"
+          id="mobile-menu-button"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div class="hidden md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        {links.map(link => (
+          <a
+            href={link.href}
+            class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+          >
+            {link.text}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  
+  button?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

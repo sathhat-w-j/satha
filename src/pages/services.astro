@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    title: 'سحب السيارات',
+    description: 'نقدم خدمة سحب السيارات المعطلة على مدار 24 ساعة في جميع أنحاء جدة. فريقنا متخصص في التعامل مع جميع أنواع السيارات بحرفية وأمان.',
+    features: [
+      'خدمة على مدار 24 ساعة',
+      'تغطية لجميع أحياء جدة',
+      'سحب آمن وموثوق',
+      'أسعار تنافسية',
+      'فريق محترف'
+    ]
+  },
+  {
+    title: 'فتح أبواب السيارات',
+    description: 'نقدم خدمة فتح أبواب السيارات المقفلة باحترافية وأمان تام. نستخدم أحدث التقنيات لفتح جميع أنواع السيارات دون إلحاق أي ضرر.',
+    features: [
+      'فتح جميع أنواع السيارات',
+      'تقنيات حديثة وآمنة',
+      'خدمة سريعة',
+      'فريق متخصص',
+      'ضمان عدم الإضرار بالسيارة'
+    ]
+  },
+  {
+    title: 'تقدير السيارات',
+    description: 'خدمة تقدير السيارات في شيخ المعارض والورش بأفضل الأسعار. نقدم تقييماً دقيقاً وعادلاً لسيارتك بناءً على حالتها وسعر السوق.',
+    features: [
+      'تقييم دقيق وعادل',
+      'خبرة في سوق السيارات',
+      'تقارير مفصلة',
+      'نصائح للبيع والشراء',
+      'خدمة سريعة وموثوقة'
+    ]
+  }
+];
+---
+
+<Layout
+  title="خدماتنا | سطحة وسط جدة"
+  description="نقدم خدمات سحب السيارات وفتح الأبواب المقفلة وتقدير السيارات في جدة. خدمة 24 ساعة بأفضل الأسعار."
+>
+  <main class="py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-12">خدماتنا</h1>
+      
+      <div class="space-y-16">
+        {services.map(service => (
+          <div class="bg-white rounded-lg shadow-lg p-8">
+            <h2 class="text-2xl font-bold mb-4">{service.title}</h2>
+            <p class="text-gray-600 mb-6">{service.description}</p>
+            <h3 class="text-xl font-semibold mb-4">مميزات الخدمة:</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+              {service.features.map(feature => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

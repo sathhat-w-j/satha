@@ -1,11 +1,196 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+import Buttons from '../components/Buttons.astro';
+import Map from '../components/Map.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const services = [
+  {
+    title: 'سحب السيارات',
+    description: 'خدمة سحب السيارات المعطلة على مدار 24 ساعة في جميع أنحاء جدة',
+    link: '/services/car-towing'
+  },
+  {
+    title: 'فتح أبواب السيارات',
+    description: 'خدمة فتح أبواب السيارات المقفلة باحترافية وأمان',
+    link: '/services/car-unlock'
+  },
+  {
+    title: 'تقدير السيارات',
+    description: 'خدمة تقدير السيارات في شيخ المعارض والورش بأفضل الأسعار',
+    link: '/services/car-valuation'
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout 
+  title="سطحة وسط جدة | خدمات سحب السيارات وفتح الأبواب المقفلة"
+  description="خدمة سطحة متخصصة في وسط جدة تقدم خدمات سحب السيارات وفتح الأبواب المقفلة وتقدير السيارات على مدار 24 ساعة. اتصل بنا الآن للحصول على خدمة سريعة وموثوقة."
+>
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">سطحة وسط جدة</h1>
+        <p class="text-xl md:text-2xl mb-8">خدمة سحب السيارات على مدار 24 ساعة</p>
+        <Buttons />
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">خدماتنا</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {services.map(service => (
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-bold mb-4">{service.title}</h3>
+              <p class="text-gray-600 mb-4">{service.description}</p>
+              <a href={service.link} class="text-blue-600 hover:text-blue-800 font-semibold">
+                المزيد من التفاصيل &larr;
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <ImageGallery />
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">لماذا تختارنا؟</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">خدمة 24/7</h3>
+            <p class="text-gray-600">نعمل على مدار الساعة لخدمتكم</p>
+          </div>
+          <div class="text-center">
+            <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">سرعة الاستجابة</h3>
+            <p class="text-gray-600">نصل إليك في أسرع وقت ممكن</p>
+          </div>
+          <div class="text-center">
+            <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">أسعار منافسة</h3>
+            <p class="text-gray-600">نقدم أفضل الأسعار في السوق</p>
+          </div>
+          <div class="text-center">
+            <div class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2">خبرة وأمان</h3>
+            <p class="text-gray-600">فريق محترف وموثوق</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- مناطق التغطية -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">مناطق التغطية</h2>
+        <Map />
+      </div>
+    </section>
+
+    <!-- Service Areas Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">مناطق الخدمة</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div class="p-4 bg-gray-50 rounded-lg">
+            <p class="font-semibold">حي السلامة</p>
+          </div>
+          <div class="p-4 bg-gray-50 rounded-lg">
+            <p class="font-semibold">حي الصفا</p>
+          </div>
+          <div class="p-4 bg-gray-50 rounded-lg">
+            <p class="font-semibold">حي المروة</p>
+          </div>
+          <div class="p-4 bg-gray-50 rounded-lg">
+            <p class="font-semibold">حي النزهة</p>
+          </div>
+          <div class="p-4 bg-gray-50 rounded-lg">
+            <p class="font-semibold">حي الروضة</p>
+          </div>
+          <div class="p-4 bg-gray-50 rounded-lg">
+            <p class="font-semibold">حي الخالدية</p>
+          </div>
+          <div class="p-4 bg-gray-50 rounded-lg">
+            <p class="font-semibold">حي الفيصلية</p>
+          </div>
+          <div class="p-4 bg-gray-50 rounded-lg">
+            <p class="font-semibold">حي الأندلس</p>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <a href="/contact" class="text-blue-600 hover:text-blue-800 font-semibold">
+            عرض جميع مناطق التغطية &larr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">آخر المقالات</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-3">
+                <a href="/blog/car-breakdown-tips" class="text-blue-600 hover:text-blue-800">
+                  نصائح مهمة عند تعطل سيارتك في الطريق
+                </a>
+              </h3>
+              <p class="text-gray-600 mb-4">تعرف على أهم الخطوات التي يجب اتباعها عند تعطل سيارتك في الطريق.</p>
+            </div>
+          </article>
+          <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-3">
+                <a href="/blog/choose-best-towing" class="text-blue-600 hover:text-blue-800">
+                  كيف تختار أفضل خدمة سطحة في جدة؟
+                </a>
+              </h3>
+              <p class="text-gray-600 mb-4">دليلك الشامل لاختيار خدمة سطحة موثوقة في جدة.</p>
+            </div>
+          </article>
+          <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-3">
+                <a href="/blog/comprehensive-guide" class="text-blue-600 hover:text-blue-800">
+                  دليلك الشامل لخدمات السطحة في جدة
+                </a>
+              </h3>
+              <p class="text-gray-600 mb-4">كل ما تحتاج معرفته عن خدمات السطحة في جدة.</p>
+            </div>
+          </article>
+        </div>
+        <div class="text-center mt-8">
+          <a href="/blog" class="text-blue-600 hover:text-blue-800 font-semibold">
+            عرض جميع المقالات &larr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>

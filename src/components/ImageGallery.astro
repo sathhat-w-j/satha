@@ -1,0 +1,46 @@
+---
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
+const images = [
+  {
+    src: '/gallery/work1.jpg',
+    alt: 'سطحة تقوم بسحب سيارة معطلة'
+  },
+  {
+    src: '/gallery/work2.jpg',
+    alt: 'خدمة فتح أبواب السيارات'
+  },
+  {
+    src: '/gallery/work3.jpg',
+    alt: 'تقدير سيارات في شيخ المعارض'
+  }
+];
+---
+
+<div class="my-12">
+  <h2 class="text-3xl font-bold text-center mb-8">معرض أعمالنا</h2>
+  <div class="relative">
+    <swiper-container
+      navigation="true"
+      pagination="true"
+      class="mySwiper"
+    >
+      {images.map((image) => (
+        <swiper-slide>
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="w-full h-[400px] object-cover rounded-lg px-12"
+          />
+        </swiper-slide>
+      ))}
+    </swiper-container>
+  </div>
+</div>
+
+<script>
+  import { register } from 'swiper/element/bundle';
+  register();
+</script>

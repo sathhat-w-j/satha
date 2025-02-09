@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Buttons from '../components/Buttons.astro';
+
+const pricingCategories = [
+  {
+    title: 'سحب السيارات',
+    items: [
+      { service: 'سحب داخل جدة', price: 'يبدأ من 100 ريال' },
+      { service: 'سحب خارج جدة', price: 'حسب المسافة' },
+      { service: 'سحب في الحالات الطارئة', price: 'يبدأ من 150 ريال' },
+      { service: 'سحب السيارات الفارهة', price: 'يبدأ من 200 ريال' }
+    ]
+  },
+  {
+    title: 'فتح الأبواب',
+    items: [
+      { service: 'فتح الأبواب العادية', price: 'يبدأ من 100 ريال' },
+      { service: 'فتح الأبواب الإلكترونية', price: 'يبدأ من 150 ريال' },
+      { service: 'برمجة المفاتيح', price: 'حسب نوع السيارة' }
+    ]
+  },
+  {
+    title: 'تقدير السيارات',
+    items: [
+      { service: 'تقدير في المعارض', price: 'يبدأ من 100 ريال' },
+      { service: 'تقدير في الورش', price: 'يبدأ من 150 ريال' },
+      { service: 'تقرير حالة السيارة', price: 'يبدأ من 200 ريال' }
+    ]
+  }
+];
+---
+
+<Layout
+  title="الأسعار | سطحة وسط جدة"
+  description="تعرف على أسعار خدمات السطحة في جدة. نقدم أسعاراً تنافسية لخدمات سحب السيارات وفتح الأبواب وتقدير السيارات."
+>
+  <main class="py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-12">أسعار الخدمات</h1>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-blue-50 p-6 rounded-lg mb-8">
+          <p class="text-lg text-center">الأسعار قابلة للتغيير حسب المسافة ونوع السيارة والخدمة المطلوبة. اتصل بنا للحصول على السعر الدقيق.</p>
+        </div>
+
+        <div class="grid gap-8">
+          {pricingCategories.map(category => (
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div class="bg-blue-600 text-white p-4">
+                <h2 class="text-xl font-bold">{category.title}</h2>
+              </div>
+              <div class="p-6">
+                <div class="space-y-4">
+                  {category.items.map(item => (
+                    <div class="flex justify-between items-center border-b pb-2">
+                      <span class="font-semibold">{item.service}</span>
+                      <span class="text-blue-600">{item.price}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-12 p-6 bg-gray-50 rounded-lg">
+          <h3 class="text-xl font-bold mb-4">ملاحظات مهمة:</h3>
+          <ul class="list-disc list-inside space-y-2 mb-8">
+            <li>الأسعار تشمل ضريبة القيمة المضافة</li>
+            <li>قد تختلف الأسعار في أوقات الذروة والمناسبات</li>
+            <li>يتم تحديد السعر النهائي بعد معاينة الحالة</li>
+            <li>نقدم خصومات خاصة للعملاء الدائمين</li>
+          </ul>
+          <Buttons />
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,83 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Buttons from '../components/Buttons.astro';
+
+const testimonials = [
+  {
+    name: 'أحمد محمد',
+    rating: 5,
+    text: 'خدمة ممتازة وسريعة. وصلوا خلال 20 دقيقة وحلوا المشكلة باحترافية.',
+    service: 'سحب سيارة'
+  },
+  {
+    name: 'سارة عبدالله',
+    rating: 5,
+    text: 'شكراً جزيلاً على المساعدة السريعة في فتح باب سيارتي. خدمة محترفة جداً.',
+    service: 'فتح أبواب'
+  },
+  {
+    name: 'خالد العمري',
+    rating: 5,
+    text: 'أفضل خدمة سطحة جربتها في جدة. أسعار معقولة وخدمة احترافية.',
+    service: 'سحب سيارة'
+  },
+  {
+    name: 'فهد السلمي',
+    rating: 5,
+    text: 'ساعدوني في تقدير سيارتي بكل أمانة واحترافية. أنصح بهم بشدة.',
+    service: 'تقدير سيارة'
+  },
+  {
+    name: 'نورة الغامدي',
+    rating: 5,
+    text: 'خدمة عملاء ممتازة وسرعة في الاستجابة. سعيدة جداً بالتجربة.',
+    service: 'فتح أبواب'
+  },
+  {
+    name: 'عبدالرحمن الحربي',
+    rating: 5,
+    text: 'تعاملت معهم أكثر من مرة وفي كل مرة كانت الخدمة ممتازة.',
+    service: 'سحب سيارة'
+  }
+];
+---
+
+<Layout
+  title="آراء العملاء | سطحة وسط جدة"
+  description="اقرأ آراء وتجارب عملائنا مع خدمات السطحة في جدة. تعرف على تجارب حقيقية من عملاء سابقين."
+>
+  <main class="py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center mb-12">آراء العملاء</h1>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {testimonials.map(testimonial => (
+            <div class="bg-white rounded-lg shadow-lg p-6">
+              <div class="flex items-center mb-4">
+                <div class="flex-1">
+                  <h3 class="font-bold text-lg">{testimonial.name}</h3>
+                  <p class="text-gray-600 text-sm">{testimonial.service}</p>
+                </div>
+                <div class="flex gap-1">
+                  {Array(testimonial.rating).fill(null).map(() => (
+                    <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              <p class="text-gray-700">{testimonial.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-12 p-6 bg-blue-50 rounded-lg text-center">
+          <h3 class="text-xl font-bold mb-4">جرب خدماتنا اليوم</h3>
+          <p class="mb-6">نسعى دائماً لتقديم أفضل خدمة لعملائنا</p>
+          <Buttons />
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
