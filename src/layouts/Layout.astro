@@ -1,14 +1,11 @@
 ---
-import '@fontsource/cairo';
-import Navigation from '../components/Navigation.astro';
-import ContactButtons from '../components/ContactButtons.astro';
+import "@fontsource/cairo";
+import Navigation from "../components/Navigation.astro";
+import ContactButtons from "../components/ContactButtons.astro";
 
-interface Props {
-  title: string;
-  description: string;
-}
-
-const { title, description } = Astro.props;
+const title = "سطحة وسط جدة | 0530605556 افضل خدمة سحب في مدينة جدة";
+const description =
+  "تبحث عن سطحة في جدة؟ نقدم خدمة نقل سيارات 24 ساعة بأسعار تنافسية. اتصل الآن. كما نقدم ايضا خدمة فتح ابواب السيارات وخدمة تقدير السيارات";
 ---
 
 <!doctype html>
@@ -24,10 +21,75 @@ const { title, description } = Astro.props;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sathhat-jeddah.com" />
+    <meta property="og:image" content="https://sathhat-jeddah.com/gallery/work1.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <link rel="canonical" href={Astro.url} />
+    <meta name="twitter:image" content="https://sathhat-jeddah.com/gallery/work1.jpg" />
+    <link rel="canonical" href="https://www.sathhat-jeddah.com" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "سطحة وسط جدة",
+        "image": "https://sathhat-w-j.com/logo.png",
+        "description": "خدمة سطحة في جدة لنقل السيارات بسرعة وأمان بأسعار مميزة. متاحة 24/7 🚗.",
+        "telephone": "+966530605556",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "شارع التحلية",
+          "addressLocality": "جدة",
+          "addressRegion": "مكة المكرمة",
+          "postalCode": "21442",
+          "addressCountry": "SA"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 21.543333,
+          "longitude": 39.172778
+        },
+        "url": "https://sathhat-jeddah.com",
+        "priceRange": "SAR 100 - 500",
+        "openingHours": "Mo-Su 00:00-23:59",
+        "sameAs": [
+          "https://www.facebook.com/sathaapp",
+          "https://twitter.com/sathaapp",
+          "https://www.instagram.com/sathaapp"
+        ],
+        "service": {
+          "@type": "Service",
+          "name": "نقل السيارات",
+          "description": "نقل سيارات سريع وآمن داخل جدة والمملكة بأسعار تنافسية.",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "سطحة وسط جدة"
+          }
+        },
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://wa.me/966530605556?text=السلام20%عليكم، %20أحتاج%20إلى%20خدمة%20سطحة",
+            "inLanguage": "ar",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "result": {
+            "@type": "Reservation",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "سطحة وسط جدة"
+            }
+          }
+        }
+      }
+      </script>
+
+
   </head>
   <body class="font-cairo">
     <Navigation />
@@ -39,7 +101,10 @@ const { title, description } = Astro.props;
           جميع الحقوق محفوظة © {new Date().getFullYear()} سطحة وسط جدة
         </p>
         <p class="text-xs mt-2">
-          تطوير بواسطة <a href="https://wa.me/967739303232" class="text-blue-400 hover:text-blue-300">Amjad Alsabry</a>
+          تطوير بواسطة <a
+            href="https://wa.me/967739303232"
+            class="text-blue-400 hover:text-blue-300">Amjad Alsabry</a
+          >
         </p>
       </div>
     </footer>
